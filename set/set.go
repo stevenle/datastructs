@@ -15,38 +15,38 @@
 package set
 
 type Set struct {
-  items map[Item]bool
+	items map[Item]bool
 }
 
 type Item interface{}
 
 func New() *Set {
-  return &Set{
-    items: make(map[Item]bool),
-  }
+	return &Set{
+		items: make(map[Item]bool),
+	}
 }
 
 func (s *Set) Add(item Item) {
-  s.items[item] = true
+	s.items[item] = true
 }
 
 func (s *Set) Contains(item Item) bool {
-  _, found := s.items[item]
-  return found
+	_, found := s.items[item]
+	return found
 }
 
 func (s *Set) Items() []Item {
-  var items []Item
-  for item := range(s.items) {
-    items = append(items, item)
-  }
-  return items
+	var items []Item
+	for item := range s.items {
+		items = append(items, item)
+	}
+	return items
 }
 
 func (s *Set) Remove(item Item) {
-  delete(s.items, item)
+	delete(s.items, item)
 }
 
 func (s *Set) Len() int {
-  return len(s.items)
+	return len(s.items)
 }

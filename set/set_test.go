@@ -15,33 +15,33 @@
 package set
 
 import (
-  "testing"
+	"testing"
 )
 
 func TestSet(t *testing.T) {
-  s := New()
-  s.Add(1)
-  s.Add(1)
-  if s.Len() != 1 {
-    t.Errorf("Expected length to be 1, but was %v", s.Len())
-  }
-  if !s.Contains(1) {
-    t.Error("1 was not found in set")
-  }
+	s := New()
+	s.Add(1)
+	s.Add(1)
+	if s.Len() != 1 {
+		t.Errorf("Expected length to be 1, but was %v", s.Len())
+	}
+	if !s.Contains(1) {
+		t.Error("1 was not found in set")
+	}
 
-  s.Add(2)
-  if s.Len() != 2 {
-    t.Errorf("Expected length to be 2, but was %v", s.Len())
-  }
-  if !s.Contains(2) {
-    t.Error("2 was not found in set")
-  }
+	s.Add(2)
+	if s.Len() != 2 {
+		t.Errorf("Expected length to be 2, but was %v", s.Len())
+	}
+	if !s.Contains(2) {
+		t.Error("2 was not found in set")
+	}
 
-  s.Remove(1)
-  if s.Len() != 1 {
-    t.Errorf("Expected length to be 1, but was %v", s.Len())
-  }
-  if s.Contains(1) {
-    t.Error("1 was not removed from set")
-  }
+	s.Remove(1)
+	if s.Len() != 1 {
+		t.Errorf("Expected length to be 1, but was %v", s.Len())
+	}
+	if s.Contains(1) {
+		t.Error("1 was not removed from set")
+	}
 }
