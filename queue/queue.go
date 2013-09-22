@@ -28,10 +28,10 @@ var (
 
 type Queue struct {
 	items      []interface{}
-	head       uint
-	tail       uint
-	length     uint
-	bufferSize uint
+	head       int
+	tail       int
+	length     int
+	bufferSize int
 }
 
 type Item interface{}
@@ -70,13 +70,13 @@ func (q *Queue) Pop() (Item, error) {
 	return item, nil
 }
 
-func (q *Queue) Length() uint {
+func (q *Queue) Len() int {
 	return q.length
 }
 
 func (q *Queue) doubleBufferSize() {
 	items := make([]interface{}, q.bufferSize*2)
-	for i := uint(0); i < q.length; i += 1 {
+	for i := int(0); i < q.length; i += 1 {
 		items[i] = q.items[(q.head+i)%q.length]
 	}
 	q.items = items
